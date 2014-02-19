@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/pianogarden.github.io.iml" filepath="$PROJECT_DIR$/.idea/pianogarden.github.io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/testSearch.iml" filepath="$PROJECT_DIR$/.idea/testSearch.iml" />
     </modules>
   </component>
 </project>
