@@ -42,7 +42,7 @@
     </style>
     <style>
        .img {
-            width:180px;height:200px;float:left;margin:0px 3px; border: 2px solid red;
+            width: 16.66666667%;height:200px;float:left;margin:5px 5px; border: 2px solid red;
         }
 
 
@@ -104,7 +104,7 @@
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-         <div class="img" ng-animate="'animate'" ng-repeat="obj in datas | filter:search">
+         <div class=" col-xs-6 col-sm-4 col-md-3 col-lg-2" style="margin-bottom: 5px" ng-animate="'animate'" ng-repeat="obj in datas | filter:search">
              <a href="#"> <img src="{{obj.img}}" width="180px" height="200px"></img></a>
          </div>
 <!--    <div class="row" ng-repeat="data in datas">
@@ -125,6 +125,30 @@
 <script>
     function  Ctrl($scope) {
         $scope.datas = [
+            {url:'an', img:'1.jpg'},
+            {url:"j1", img:'2.jpg'},
+            {url:"kd", img:'3.jpg'},
+            {url:"ls",img:'4.jpg'},
+            {url:'f', img:'5.jpg'},
+            {url:"1f", img:'6.jpg'},
+            {url:"fgd", img:'7.jpg'},
+            {url:"ls", img:'8.jpg'},
+            {url:'ah', img:'9.jpg'},
+            {url:"1f", img:'10.jpg'},
+            {url:"gd", img:'11.jpg'},
+            {url:"js", img:'12.jpg'},
+            {url:'an', img:'1.jpg'},
+            {url:"j1", img:'2.jpg'},
+            {url:"kd", img:'3.jpg'},
+            {url:"ls",img:'4.jpg'},
+            {url:'f', img:'5.jpg'},
+            {url:"1f", img:'6.jpg'},
+            {url:"fgd", img:'7.jpg'},
+            {url:"ls", img:'8.jpg'},
+            {url:'ah', img:'9.jpg'},
+            {url:"1f", img:'10.jpg'},
+            {url:"gd", img:'11.jpg'},
+            {url:"js", img:'12.jpg'},
             {url:'an', img:'1.jpg'},
             {url:"j1", img:'2.jpg'},
             {url:"kd", img:'3.jpg'},
