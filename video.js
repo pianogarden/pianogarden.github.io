@@ -43,7 +43,7 @@ myApp.controller('DisplayController', function($scope, TotalDatas, AllInstrument
         e:''
     };
     $scope.$watch('search.b', function() {
-        changeStyle(v);
+ 
         if($scope.search.b) {
             $scope.ininData = $scope.totalDatas;
         } else {
@@ -52,7 +52,7 @@ myApp.controller('DisplayController', function($scope, TotalDatas, AllInstrument
         console.log($scope.ininData.length);
     });
     $scope.$watch('search.d', function() {
-        changeStyle(v);
+ 
         if($scope.search.d) {
             $scope.ininData = $scope.totalDatas;
         } else {
@@ -67,7 +67,7 @@ myApp.controller('DisplayController', function($scope, TotalDatas, AllInstrument
         } else {
             $scope.ininData = $scope.tempData;
         }
-        changeStyle(v);
+ 
         console.log($scope.ininData.length);
     });
     $scope.allInstruments = AllInstruments;
