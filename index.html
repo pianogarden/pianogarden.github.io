@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.css">
-    <script src="holder.js"></script>
-    <script src="angular.js"></script>
+    <script src="js/holder.js"></script>
+    <script src="js/angular.js"></script>
     <style>
 
         .animate-enter,
@@ -49,7 +51,7 @@
     </style>
 </head>
 
-<body ng-controller="Ctrl">
+<body ng-controller="DisplayController" ng-init="init()">
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -71,19 +73,16 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><button class="btn btn-info" onclick="changeStyle(1)">img-circle</button> </li>
+                        <li><button class="btn  btn-success" onclick="changeStyle(2)">img-rounded</button> </li>
+                        <li><button class="btn btn-error" onclick="changeStyle(3)">img-thumbnail</button> </li>
+
                     </ul>
                 </li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" x-webkit-speech class="form-control" ng-model="search" placeholder="Search">
+                    <input type="text" x-webkit-speech class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -92,11 +91,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><button class="btn btn-info" onclick="changeStyle(1)">img-circle</button> </li>
+                        <li><button class="btn  btn-success" onclick="changeStyle(2)">img-rounded</button> </li>
+                        <li><button class="btn btn-error" onclick="changeStyle(3)">img-thumbnail</button> </li>
                     </ul>
                 </li>
             </ul>
@@ -104,67 +101,65 @@
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-         <div class=" col-xs-6 col-sm-4 col-md-3 col-lg-2" style="margin-bottom: 5px" ng-animate="'animate'" ng-repeat="obj in datas | filter:search">
-             <a href="#"> <img src="{{obj.img}}" width="180px" height="200px"></img></a>
-         </div>
-<!--    <div class="row" ng-repeat="data in datas">
-        <div class="col-md-2" ng-animate="'animate'" style="height: 300px" ng-repeat="obj in data | filter:search ">
-            <div class="row">
-                <a href="http://www.baidu.com"> <img width="100%" height="100%" src="{{obj.img}}"></img></a>
-            </div>
-            <div class="row">
-
-                <p>{{obj.url}}</p>
-            </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <form class="form-horizontal" role="form">
+                <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3" for="inputSuccess3">名称</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="inputSuccess3" ng-model="search.b">
+                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>-->
+        <div class="col-sm-4">
+            <form class="form-horizontal" role="form">
+                <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3" for="inputSuccess3">作者</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" ng-model="search.d" ng-options="c for c in allAuthor">
+                            <option value="">-- 选择作者 --<option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <form class="form-horizontal" role="form">
+                <div class="form-group has-success has-feedback">
+                    <label class="control-label col-sm-3" for="inputSuccess3">乐器</label>
+
+                    <div class="col-sm-9">
+                        <select class="form-control" ng-model="search.e" ng-options="c for c in allInstruments">
+                            <option value="">-- 选择乐器 --<option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+         <div class=" col-xs-6 col-sm-4 col-md-3 col-lg-2" style="margin-bottom: 5px" ng-animate="'animate'" ng-repeat="obj in initData | filter: search">
+             <div>
+                 <a ng-href="{{obj.c}}"> <img ng-src="{{obj.h}}" width="180px" height="180px" class=""></img></a>
+             </div>
+             <div>
+                 <p style="text-align: center">{{obj.b}}</p>
+             </div>
+         </div>
 </div>
 
 
 
 <script>
-    function  Ctrl($scope) {
-        $scope.datas = [
-            {url:'an', img:'1.jpg'},
-            {url:"j1", img:'2.jpg'},
-            {url:"kd", img:'3.jpg'},
-            {url:"ls",img:'4.jpg'},
-            {url:'f', img:'5.jpg'},
-            {url:"1f", img:'6.jpg'},
-            {url:"fgd", img:'7.jpg'},
-            {url:"ls", img:'8.jpg'},
-            {url:'ah', img:'9.jpg'},
-            {url:"1f", img:'10.jpg'},
-            {url:"gd", img:'11.jpg'},
-            {url:"js", img:'12.jpg'},
-            {url:'an', img:'1.jpg'},
-            {url:"j1", img:'2.jpg'},
-            {url:"kd", img:'3.jpg'},
-            {url:"ls",img:'4.jpg'},
-            {url:'f', img:'5.jpg'},
-            {url:"1f", img:'6.jpg'},
-            {url:"fgd", img:'7.jpg'},
-            {url:"ls", img:'8.jpg'},
-            {url:'ah', img:'9.jpg'},
-            {url:"1f", img:'10.jpg'},
-            {url:"gd", img:'11.jpg'},
-            {url:"js", img:'12.jpg'},
-            {url:'an', img:'1.jpg'},
-            {url:"j1", img:'2.jpg'},
-            {url:"kd", img:'3.jpg'},
-            {url:"ls",img:'4.jpg'},
-            {url:'f', img:'5.jpg'},
-            {url:"1f", img:'6.jpg'},
-            {url:"fgd", img:'7.jpg'},
-            {url:"ls", img:'8.jpg'},
-            {url:'ah', img:'9.jpg'},
-            {url:"1f", img:'10.jpg'},
-            {url:"gd", img:'11.jpg'},
-            {url:"js", img:'12.jpg'}
-        ];
-    }
 </script>
-<script src="jquery-1.7.2.min.js"></script>
+
+<script  Charset="UTF-8" type="text/javascript" src="factory.js"></script>
+<script  Charset="UTF-8" type="text/javascript" src="video.js"></script>
+<script src="changePictureMode.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
 <script src="bootstrap-3.1.1-dist/js/bootstrap.js"></script>
 </body>
 </html>

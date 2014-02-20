@@ -5,8 +5,9 @@ Holder - 2.3.1 - client side image placeholders
 
 Provided under the MIT License.
 Commercial use requires attribution.
-
+和力量
 */
+var a = "哈法";
 var Holder = Holder || {};
 (function (app, win) {
 var system_config = {
