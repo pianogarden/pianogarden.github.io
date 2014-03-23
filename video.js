@@ -3,7 +3,7 @@
  * @author tsq <1530234656@qq.com>.
  * @date 14-2-19
  */
-myApp.controller('DisplayController', function($scope, TotalDatas, AllInstruments, AllAuthor) {
+myApp.controller('DisplayController', function($scope, TotalDatas, AllInstruments, AllAuthor, AllName) {
     $scope.totalDatas = TotalDatas.datas;
     var DISPLAY_COUNT =120;
     var totalData = [];
@@ -72,7 +72,7 @@ myApp.controller('DisplayController', function($scope, TotalDatas, AllInstrument
     });
     $scope.allInstruments = AllInstruments;
     $scope.allAuthor = AllAuthor;
-    console.log($scope.allAuthor);
+	$scope.allName = AllName;
 });
 
 

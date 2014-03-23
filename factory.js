@@ -3,7 +3,7 @@
  * Created by 肉仔强 on 14-2-20.
  */
 
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ui.bootstrap']);
 myApp.factory('TotalDatas', function() {
     var totalDatas = {};
     totalDatas.datas = [
@@ -239,6 +239,27 @@ myApp.factory('AllAuthor', function (TotalDatas) {
     for (var i = 0; i < data.length; i++) {
             all.push(data[i].d);
             console.log(data[i].d);
+    }
+
+    function unique(arr) {
+        var ret = [];
+        for (var i = 0; i < arr.length; i++) {
+            var item = arr[i];
+            if (ret.indexOf(item) === -1) {
+                ret.push(item);
+            }
+        }
+        console.log('ret:',ret);
+        return ret
+    }
+    return unique(all);
+});
+myApp.factory('AllName', function (TotalDatas) {
+    var all = [];
+    var data = TotalDatas.datas;
+    for (var i = 0; i < data.length; i++) {
+            all.push(data[i].b);
+            console.log(data[i].b);
     }
 
     function unique(arr) {
